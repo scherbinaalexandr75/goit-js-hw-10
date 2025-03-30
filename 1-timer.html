@@ -5,12 +5,20 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Timer</title>
-    <script type="module" crossorigin src="/goit-js-hw-10/assets/modulepreload-polyfill-B5Qt9EMX.js"></script>
-    <link rel="stylesheet" crossorigin href="/goit-js-hw-10/assets/styles-CFrPtiMb.css">
+    <!-- <link rel="stylesheet" href="./css/1-timer.css" /> -->
+    <script type="module" crossorigin src="/goit-js-hw-10/1-timer.js"></script>
+    <link rel="modulepreload" crossorigin href="/goit-js-hw-10/assets/modulepreload-polyfill-B5Qt9EMX.js">
+    <link rel="modulepreload" crossorigin href="/goit-js-hw-10/assets/vendor-A92OCY9B.js">
+    <link rel="stylesheet" crossorigin href="/goit-js-hw-10/assets/vendor-CUZofXIC.css">
+    <link rel="stylesheet" crossorigin href="/goit-js-hw-10/assets/styles-CXAOxgKo.css">
   </head>
   <body>
-    <input type="text" id="datetime-picker" />
-    <button type="button" data-start>Start</button>
+    <ul class="timer-title">
+      <li class="item-title"><a href="./index.html">Go Back</a></li>
+    </ul>
+
+    <input class="picker" type="text" id="datetime-picker" />
+    <button  class="btn-start" type="button" data-start>Start</button>
 
     <div class="timer">
       <div class="field">
