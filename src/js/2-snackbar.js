@@ -2,33 +2,30 @@ import iziToast from 'izitoast';
 import 'izitoast/dist/css/iziToast.min.css';
 
 const form = document.querySelector('.form');
-form.addEventListener('submit', onSubmit);
 
-
-function onSubmit(event) {
+form.addEventListener('submit', event => {
   event.preventDefault();
   const { delay, state } = event.currentTarget.elements;
-  
-  const myPromis = new Promise((resolve, reject) => {
+  const delayMs = parseInt(delay.value, 10);
+  const stateBit = state.value;
 
+  new Promise((resolve, reject) => {
     setTimeout(() => {
-      if (state.value === "fulfilled") {
-        resolve(delay);
+      if (stateBit === 'fulfilled') {
+        resolve(delayMs);
       } else {
-        reject(delay);
+        reject(delayMs);
       }
-    }, delay.value);
-    
-  });
-
-
-
-
-  myPromis
-    .then(() => {
-      iziToast.warning({ message: `✅ Fulfilled promise in ${delay.value} ms`});
+    }, delayMs);
+  })
+    .then(delay => {
+      iziToast.success({
+        message: `✅ Fulfilled promise in ${delay}ms`,
+      });
     })
-    .catch(() => {
-      iziToast.warning ({message: `❌ Rejected promise in ${delay.value} ms`});
+    .catch(delay => {
+      iziToast.error({
+        message: `❌ Rejected promise in ${delay}ms`,
+      });
     });
-}
+});
